@@ -2,9 +2,9 @@ import type { Metadata } from 'next'
 import { Cinzel, PT_Serif, Open_Sans } from 'next/font/google'
 
 import './globals.css'
-import Header from '@/components/layout/Banner'
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/footer/Footer'
+import Header from '@/components/layout/header/Banner'
+import Navbar from '@/components/layout/header/Navbar'
+import Footer from '@/components/footer/Footer'
 
 const cinzel = Cinzel({
   subsets: ['latin'],

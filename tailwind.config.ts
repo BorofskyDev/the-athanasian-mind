@@ -1,4 +1,5 @@
-import type { Config } from "tailwindcss";
+import type { Config } from 'tailwindcss'
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [
@@ -28,6 +29,26 @@ const config: Config = {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    // Custom Gradient Text Plugin
+    plugin(function ({ addUtilities, theme }) {
+      const newUtilities = {
+        '.text-gradient': {
+          backgroundImage: `linear-gradient(45deg, ${theme(
+            'colors.primary'
+          )}, ${theme('colors.secondary')})`,
+          backgroundClip: 'text',
+          WebkitBackgroundClip: 'text',
+          color: 'transparent',
+          WebkitTextFillColor: 'transparent',
+        },
+      }
+
+      addUtilities(newUtilities, {
+        respectPrefix: false,
+        respectImportant: false,
+      })
+    }),
+  ],
 }
-export default config;
+export default config

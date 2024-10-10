@@ -1,8 +1,15 @@
+import BodyText from "@/components/layout/body-text/BodyText";
+import PageHeader from "@/components/layout/headers/PageHeader";
+import SectionHeader from "@/components/layout/headers/SectionHeader";
 
 
 export default function Home() {
   return (
-    <div className=''>
+    <section>
+      <PageHeader>Iconic Insights Into Faith And Philosophy</PageHeader>
+    
+      <SectionHeader>Exploring the Nexus of Belief and Reason</SectionHeader>
+    <BodyText>
       Lorem ipsum odor amet, consectetuer adipiscing elit. Imperdiet tempor
       faucibus scelerisque sodales leo quam sapien est. Habitasse nostra
       pulvinar ornare nostra massa sagittis; massa amet. Ante nibh tellus
@@ -61,6 +68,7 @@ export default function Home() {
       enim ac rhoncus mauris. Commodo lorem iaculis ut ornare convallis sit.
       Himenaeos elementum purus finibus, nibh tempus nunc. Egestas porttitor
       sodales vulputate duis netus.
-    </div>
+    </BodyText>
+    </section>
   )
 }

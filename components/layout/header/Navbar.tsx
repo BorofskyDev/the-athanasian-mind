@@ -76,19 +76,18 @@ const Navbar: React.FC = () => {
   }
 
   return (
-    <nav className='sticky top-0 bg-background shadow-lg z-50'>
-      {/* Inner Container with Responsive Margins and Max-Width */}
-      <div className='flex justify-between items-center p-4 max-w-screen-xl mx-auto px-5 md:px-10 lg:px-20 xl:px-30 py-6'>
-        {/* Logo or Brand Name */}
-        <div className='text-primary font-display text-xl'>tAM</div>
+    <nav className='sticky top-0 bg-background max-w-screen-xl mx-auto shadow-lg z-50 md:px-10 lg:px-20 xl:px-30'>
+      <div className='flex justify-between items-center p-4  px-5  py-6'>
+        <div className='text-primary font-display gradient-text text-xl'>
+          tAM
+        </div>
 
-        {/* Hamburger/X Icon for Mobile */}
         <button
           onClick={toggleMenu}
           aria-label='Toggle Menu'
           aria-expanded={isOpen}
           aria-controls='mobile-menu'
-          className='focus:outline-none md:hidden'
+          className='focus:outline-none md:hidden z-50'
         >
           {isOpen ? (
             <FiX size={28} color='#8E44AD' aria-label='Close Menu' />
@@ -97,7 +96,6 @@ const Navbar: React.FC = () => {
           )}
         </button>
 
-        {/* Horizontal Menu for Desktop */}
         <ul className='hidden md:flex space-x-6'>
           {navLinks.map((link) => (
             <li key={link}>
@@ -112,7 +110,6 @@ const Navbar: React.FC = () => {
         </ul>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
           <motion.div

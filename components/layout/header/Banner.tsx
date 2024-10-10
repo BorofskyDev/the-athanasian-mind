@@ -13,8 +13,11 @@ const Banner: React.FC = () => {
     >
       <h1
         className='
+        max-w-screen-xl
+        mx-auto
         font-display 
         text-center 
+        text-gradient
         text-[clamp(2rem,5vw,4rem)] 
         leading-tight 
         text-primary
