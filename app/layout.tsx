@@ -5,6 +5,7 @@ import './globals.css'
 import Header from '@/components/layout/header/Banner'
 import Navbar from '@/components/layout/header/Navbar'
 import Footer from '@/components/footer/Footer'
+import { AuthProvider } from '@/context/AuthContext'
 
 const cinzel = Cinzel({
   subsets: ['latin'],
@@ -40,12 +41,15 @@ export default function RootLayout({
       <body
         className={`${cinzel.variable} ${ptSerif.variable} ${openSans.variable} antialiased`}
       >
+        <AuthProvider>
         <Header />
         <Navbar />
         <div className='max-w-screen-xl mx-auto pt-[60px] pb-[60px]  md:mx-10 lg:mx-20 xl:mx-30'>
           {children}
         </div>
         <Footer />
+
+        </AuthProvider>
       </body>
     </html>
   )
