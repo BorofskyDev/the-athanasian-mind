@@ -39,16 +39,15 @@ export default function RootLayout({
   return (
     <html lang='en'>
       <body
-        className={`${cinzel.variable} ${ptSerif.variable} ${openSans.variable} antialiased`}
+        className={`${cinzel.variable} ${ptSerif.variable} ${openSans.variable} antialiased max-w-screen-xl mx-auto `}
       >
         <AuthProvider>
-        <Header />
-        <Navbar />
-        <div className='max-w-screen-xl mx-auto pt-[60px] pb-[60px]  md:mx-10 lg:mx-20 xl:mx-30'>
-          {children}
-        </div>
-        <Footer />
-
+          <Header />
+          <Navbar />
+          <div className='max-w-screen-xl mx-auto pt-[60px] pb-[60px]  md:mx-10 lg:mx-20 xl:mx-30'>
+            {children}
+          </div>
+          <Footer />
         </AuthProvider>
       </body>
     </html>

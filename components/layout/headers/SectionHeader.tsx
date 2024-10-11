@@ -13,7 +13,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
     <h3
       className={`
         text-primary 
-        text-left 
+        text-center
         font-semibold 
         text-xl 
         md:text-2xl 

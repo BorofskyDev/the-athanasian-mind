@@ -3,6 +3,7 @@
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import admin from 'firebase-admin'
+import AdminPageComponent from '@/components/admin/AdminPageComponent'
 
 // Initialize Firebase Admin SDK if not already initialized
 if (!admin.apps.length) {
@@ -28,31 +29,27 @@ if (!admin.apps.length) {
   })
 }
 
-export default async function AdminPage() {
-  const tokenCookie = cookies().get('token')
-  const token = tokenCookie?.value
+// Server Component
+const AdminPage: React.FC = () => {
+  // Access cookies on the server
+  const token = cookies().get('token')?.value
 
   if (!token) {
     // Redirect to login if no token is found
     redirect('/login')
   }
 
+  // Optionally, verify the token here using Firebase Admin SDK
+  // This ensures that the token is valid and the user is authenticated
   try {
-    // Verify the token using firebase-admin
-    const decodedToken = await admin.auth().verifyIdToken(token)
-    // You can use decodedToken to get user info if needed
-    console.log('Decoded Token:', decodedToken)
+    admin.auth().verifyIdToken(token)
   } catch (error) {
     console.error('Token verification failed:', error)
-    // Token is invalid or expired, redirect to login
+    // Redirect to login if token is invalid
     redirect('/login')
   }
 
-  // Render the admin page content
-  return (
-    <div>
-      <h1>Admin Dashboard</h1>
-      {/* Admin content goes here */}
-    </div>
-  )
+  return <AdminPageComponent /> // Render the Client Component
 }
+
+export default AdminPage
